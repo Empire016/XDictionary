@@ -32,7 +32,11 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      {definition && <p id="definition">Definition: {definition}</p>}
+      {definition && (
+        <p id="definition" className={definition.includes("not found") ? "not-found" : ""}>
+          Definition: {definition}
+        </p>
+      )}
     </div>
   );
 }
