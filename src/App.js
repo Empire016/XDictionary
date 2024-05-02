@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -34,6 +34,7 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
+      <p class="para">Definition:</p>
       <p className="definition">
         {definition}
       </p>
