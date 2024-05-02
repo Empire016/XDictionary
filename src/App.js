@@ -13,8 +13,9 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchTerm in dictionary) {
-      setDefinition(dictionary[searchTerm]);
+    const term = searchTerm.toLowerCase();
+    if (term in dictionary) {
+      setDefinition(dictionary[term]);
     } else {
       setDefinition(`Word not found in the dictionary: ${searchTerm}`);
     }
@@ -29,14 +30,13 @@ function App() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Enter a word..."
+          data-cy="search-input" // Added data-cy attribute
         />
-        <button type="submit">Search</button>
+        <button type="submit" data-cy="search-button">Search</button> {/* Added data-cy attribute */}
       </form>
-      {definition && (
-        <p id="definition" className={definition.includes("not found") ? "not-found" : ""}>
-          Definition: {definition}
-        </p>
-      )}
+      <p className="definition" data-cy="definition"> {/* Changed id to class */}
+        {definition && `Definition: ${definition}`}
+      </p>
     </div>
   );
 }
